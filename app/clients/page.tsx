@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
 import {
   Table,
   TableBody,
@@ -8,25 +7,8 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-
-const clients = [
-  {
-    name: 'Acme Corp',
-    contact: 'John Doe',
-    email: 'john@example.com',
-    phone: '(123) 456-7890',
-    project: 'project-alpha',
-    projectName: 'Project Alpha',
-  },
-  {
-    name: 'Globex Inc',
-    contact: 'Jane Smith',
-    email: 'jane@example.com',
-    phone: '(987) 654-3210',
-    project: 'project-beta',
-    projectName: 'Project Beta',
-  },
-];
+import { Button } from '@/components/ui/button';
+import { clients } from '@/lib/clients';
 
 export default function ClientsPage() {
   return (
@@ -48,8 +30,8 @@ export default function ClientsPage() {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {clients.map((client, index) => (
-            <TableRow key={client.email}>
+          {clients.map((client) => (
+            <TableRow key={client.id}>
               <TableCell className="font-medium">{client.name}</TableCell>
               <TableCell>{client.contact}</TableCell>
               <TableCell>{client.email}</TableCell>
@@ -57,9 +39,14 @@ export default function ClientsPage() {
               <TableCell>
                 <Link href={`/projects/${client.project}`}>{client.projectName}</Link>
               </TableCell>
-              <TableCell>{String(index + 1).padStart(3, '0')}</TableCell>
+              <TableCell>{client.clientNumber}</TableCell>
               <TableCell className="text-right">
-                <Button variant="outline">Edit</Button>
+                <Link
+                  href={`/clients/${client.id}/edit`}
+                  className="inline-flex items-center justify-center rounded-md border px-3 py-2 text-sm font-medium hover:bg-gray-50"
+                >
+                  Edit
+                </Link>
               </TableCell>
             </TableRow>
           ))}
