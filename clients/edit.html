@@ -88,6 +88,40 @@
       menuBtn.addEventListener('click', () => {
         sidebar.classList.toggle('hidden');
       });
+
+      const clients = [
+        {
+          id: '1',
+          name: 'Acme Corp',
+          contact: 'John Doe',
+          email: 'john@example.com',
+          phone: '(123) 456-7890',
+          projectName: 'Project Alpha',
+          clientNumber: '001',
+        },
+        {
+          id: '2',
+          name: 'Globex Inc',
+          contact: 'Jane Smith',
+          email: 'jane@example.com',
+          phone: '(987) 654-3210',
+          projectName: 'Project Beta',
+          clientNumber: '002',
+        },
+      ];
+
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get('id') || '1';
+      const client = clients.find((c) => c.id === id);
+
+      if (client) {
+        document.getElementById('name').value = client.name;
+        document.getElementById('contact').value = client.contact;
+        document.getElementById('email').value = client.email;
+        document.getElementById('phone').value = client.phone;
+        document.getElementById('project').value = client.projectName;
+        document.getElementById('clientNumber').value = client.clientNumber;
+      }
     </script>
   </body>
 </html>
