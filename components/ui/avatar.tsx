@@ -21,10 +21,14 @@ const AvatarImage = React.forwardRef<HTMLImageElement, React.ImgHTMLAttributes<H
 );
 AvatarImage.displayName = 'AvatarImage';
 
-const AvatarFallback = React.forwardRef<HTMLSpanElement, React.HTMLAttributes<HTMLSpanElement>>(
-  ({ className, ...props }, ref) => (
+interface AvatarFallbackProps extends React.HTMLAttributes<HTMLSpanElement> {
+  color?: string;
+}
+const AvatarFallback = React.forwardRef<HTMLSpanElement, AvatarFallbackProps>(
+  ({ className, color, style, ...props }, ref) => (
     <span
       ref={ref}
+      style={{ ...style, backgroundColor: color }}
       className={cn(
         'flex h-full w-full items-center justify-center rounded-full bg-gray-100 text-sm font-medium text-gray-600 dark:bg-gray-800 dark:text-gray-300',
         className
