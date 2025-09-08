@@ -15,7 +15,9 @@ export default function ClientsPage() {
     <div className="space-y-4">
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-bold">Client List</h1>
-        <Button>Create a new client</Button>
+        <Button asChild>
+          <Link href="/clients/new">Create a new client</Link>
+        </Button>
       </div>
       <Table>
         <TableHeader>
