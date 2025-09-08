@@ -25,7 +25,9 @@ export function Header() {
         <DropdownMenu>
           <DropdownMenuTrigger className="rounded-full">
             <Avatar>
-              <AvatarFallback>JD</AvatarFallback>
+              <AvatarFallback color="#2563eb" className="text-white">
+                JD
+              </AvatarFallback>
             </Avatar>
           </DropdownMenuTrigger>
           <DropdownMenuContent>
