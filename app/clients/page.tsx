@@ -8,16 +8,17 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import { Button } from '@/components/ui/button';
-import { clients } from '@/lib/clients';
+import { getClients } from '@/lib/data';
 
-export default function ClientsPage() {
+export default async function ClientsPage() {
+  const clients = await getClients();
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-bold">Client List</h1>
-        <Button asChild>
-          <Link href="/clients/new">Create a new client</Link>
-        </Button>
+        <Link href="/clients/new">
+          <Button>Create a new client</Button>
+        </Link>
       </div>
       <Table>
         <TableHeader>
@@ -35,13 +36,13 @@ export default function ClientsPage() {
           {clients.map((client) => (
             <TableRow key={client.id}>
               <TableCell className="font-medium">{client.name}</TableCell>
-              <TableCell>{client.contact}</TableCell>
+              <TableCell>{client.contact_person}</TableCell>
               <TableCell>{client.email}</TableCell>
               <TableCell>{client.phone}</TableCell>
               <TableCell>
-                <Link href={`/projects/${client.project}`}>{client.projectName}</Link>
+                <Link href={`/projects/${client.id}`}>{client.company_name}</Link>
               </TableCell>
-              <TableCell>{client.clientNumber}</TableCell>
+              <TableCell>{client.client_number}</TableCell>
               <TableCell className="text-right">
                 <Link
                   href={`/clients/${client.id}/edit`}

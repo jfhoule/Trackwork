@@ -18,6 +18,7 @@ export interface Project {
   client_id: string;
   budget_hours: number | null;
   is_active: boolean;
+  clients: { name: string } | null;
 }
 
 export interface TimeEntry {
@@ -27,6 +28,7 @@ export interface TimeEntry {
   date: string; // ISO date
   duration: number; // minutes
   description: string | null;
+  projects: Project | null;
 }
 
 export interface Invoice {
@@ -35,6 +37,7 @@ export interface Invoice {
   date: string; // ISO date
   total_amount: number;
   status: string;
+  clients: { name: string } | null;
 }
 
 export interface InvoiceItem {
