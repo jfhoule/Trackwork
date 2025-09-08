@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Project List - Trackwork</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body class="h-full bg-gray-50 text-gray-900">
+    <div class="flex min-h-screen">
+      <aside id="sidebar" class="hidden md:flex w-56 flex-col border-r bg-white p-4">
+        <nav class="flex flex-col gap-1">
+          <a href="../dashboard/" class="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium hover:bg-gray-100">
+            <i data-lucide="layout-dashboard" class="h-4 w-4"></i>
+            Dashboard
+          </a>
+          <a href="../time/" class="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium hover:bg-gray-100">
+            <i data-lucide="clock" class="h-4 w-4"></i>
+            Time
+          </a>
+          <a href="../projects/" class="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium bg-gray-100">
+            <i data-lucide="folder-kanban" class="h-4 w-4"></i>
+            Projects
+          </a>
+          <a href="../clients/" class="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium hover:bg-gray-100">
+            <i data-lucide="users" class="h-4 w-4"></i>
+            Clients
+          </a>
+          <a href="../invoices/" class="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium hover:bg-gray-100">
+            <i data-lucide="file-text" class="h-4 w-4"></i>
+            Invoices
+          </a>
+          <a href="../reports/" class="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium hover:bg-gray-100">
+            <i data-lucide="bar-chart-2" class="h-4 w-4"></i>
+            Reports
+          </a>
+          <a href="../settings/" class="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium hover:bg-gray-100">
+            <i data-lucide="settings" class="h-4 w-4"></i>
+            Settings
+          </a>
+        </nav>
+      </aside>
+      <div class="flex flex-1 flex-col">
+        <header class="flex h-14 items-center border-b bg-white px-4">
+          <button id="menuButton" class="mr-2 md:hidden">
+            <i data-lucide="menu" class="h-5 w-5"></i>
+            <span class="sr-only">Toggle menu</span>
+          </button>
+          <h1 class="text-xl font-semibold">Projects</h1>
+          <a href="#" class="ml-auto inline-flex items-center justify-center rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-gray-50 hover:bg-gray-900/90">Create a new project</a>
+        </header>
+        <main class="flex-1 p-4 space-y-4">
+          <div class="w-full overflow-auto">
+            <table class="w-full caption-bottom text-sm">
+              <thead class="[&_tr]:border-b">
+                <tr>
+                  <th class="h-10 px-2 text-left align-middle font-medium text-gray-500">Project Name</th>
+                  <th class="h-10 px-2 text-left align-middle font-medium text-gray-500 hidden md:table-cell">Client</th>
+                  <th class="h-10 px-2 text-left align-middle font-medium text-gray-500 hidden md:table-cell">Start Date</th>
+                  <th class="h-10 px-2 text-left align-middle font-medium text-gray-500">Hours Spent</th>
+                  <th class="h-10 px-2 text-right align-middle font-medium text-gray-500">Actions</th>
+                </tr>
+              </thead>
+              <tbody class="[&_tr:last-child]:border-0">
+                <tr class="border-b">
+                  <td class="p-2 align-middle font-medium">Project Alpha</td>
+                  <td class="p-2 align-middle hidden md:table-cell">Acme Corp</td>
+                  <td class="p-2 align-middle hidden md:table-cell">2023-01-01</td>
+                  <td class="p-2 align-middle">120</td>
+                  <td class="p-2 align-middle text-right">
+                    <div class="inline-flex items-center gap-2">
+                      <a href="detail.html" class="inline-flex items-center justify-center rounded-md border p-2 hover:bg-gray-50">
+                        <i data-lucide="eye" class="h-4 w-4"></i>
+                        <span class="sr-only">View</span>
+                      </a>
+                      <a href="edit.html?id=1" class="inline-flex items-center justify-center rounded-md border p-2 hover:bg-gray-50">
+                        <i data-lucide="pencil" class="h-4 w-4"></i>
+                        <span class="sr-only">Edit</span>
+                      </a>
+                    </div>
+                  </td>
+                </tr>
+                <tr class="border-b">
+                  <td class="p-2 align-middle font-medium">Project Beta</td>
+                  <td class="p-2 align-middle hidden md:table-cell">Globex Inc</td>
+                  <td class="p-2 align-middle hidden md:table-cell">2023-02-15</td>
+                  <td class="p-2 align-middle">80</td>
+                  <td class="p-2 align-middle text-right">
+                    <div class="inline-flex items-center gap-2">
+                      <a href="detail.html" class="inline-flex items-center justify-center rounded-md border p-2 hover:bg-gray-50">
+                        <i data-lucide="eye" class="h-4 w-4"></i>
+                        <span class="sr-only">View</span>
+                      </a>
+                      <a href="edit.html?id=2" class="inline-flex items-center justify-center rounded-md border p-2 hover:bg-gray-50">
+                        <i data-lucide="pencil" class="h-4 w-4"></i>
+                        <span class="sr-only">Edit</span>
+                      </a>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p><a href="../" class="text-blue-600 underline">Back to Home</a></p>
+        </main>
+      </div>
+    </div>
+    <script>
+      lucide.createIcons();
+      const menuBtn = document.getElementById('menuButton');
+      const sidebar = document.getElementById('sidebar');
+      menuBtn.addEventListener('click', () => {
+        sidebar.classList.toggle('hidden');
+      });
+    </script>
+  </body>
+</html>
