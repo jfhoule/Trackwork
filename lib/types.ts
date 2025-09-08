@@ -10,6 +10,9 @@ export interface Client {
   name: string;
   email: string | null;
   company_name: string | null;
+  phone?: string | null;
+  client_number?: string | null;
+  contact_person?: string | null;
 }
 
 export interface Project {
