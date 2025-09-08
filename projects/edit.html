@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Edit Project - Trackwork</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+  <body class="h-full bg-gray-50 text-gray-900">
+    <div class="flex min-h-screen">
+      <aside id="sidebar" class="hidden md:flex w-56 flex-col border-r bg-white p-4">
+        <nav class="flex flex-col gap-1">
+          <a href="../dashboard/" class="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium hover:bg-gray-100">
+            <i data-lucide="layout-dashboard" class="h-4 w-4"></i>
+            Dashboard
+          </a>
+          <a href="../time/" class="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium hover:bg-gray-100">
+            <i data-lucide="clock" class="h-4 w-4"></i>
+            Time
+          </a>
+          <a href="../projects/" class="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium bg-gray-100">
+            <i data-lucide="folder-kanban" class="h-4 w-4"></i>
+            Projects
+          </a>
+          <a href="../clients/" class="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium hover:bg-gray-100">
+            <i data-lucide="users" class="h-4 w-4"></i>
+            Clients
+          </a>
+          <a href="../invoices/" class="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium hover:bg-gray-100">
+            <i data-lucide="file-text" class="h-4 w-4"></i>
+            Invoices
+          </a>
+          <a href="../reports/" class="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium hover:bg-gray-100">
+            <i data-lucide="bar-chart-2" class="h-4 w-4"></i>
+            Reports
+          </a>
+          <a href="../settings/" class="flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium hover:bg-gray-100">
+            <i data-lucide="settings" class="h-4 w-4"></i>
+            Settings
+          </a>
+        </nav>
+      </aside>
+      <div class="flex flex-1 flex-col">
+        <header class="flex h-14 items-center border-b bg-white px-4">
+          <button id="menuButton" class="mr-2 md:hidden">
+            <i data-lucide="menu" class="h-5 w-5"></i>
+            <span class="sr-only">Toggle menu</span>
+          </button>
+          <h1 class="text-xl font-semibold">Edit Project</h1>
+        </header>
+        <main class="flex-1 p-4 space-y-4">
+          <form class="space-y-4 max-w-md">
+            <div class="space-y-2">
+              <label for="name" class="block text-sm font-medium text-gray-700">Project Name</label>
+              <input id="name" type="text" required class="flex h-9 w-full rounded-md border border-gray-300 bg-white px-3 py-1 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1" />
+            </div>
+            <div class="space-y-2">
+              <label for="client" class="block text-sm font-medium text-gray-700">Client</label>
+              <input id="client" type="text" required class="flex h-9 w-full rounded-md border border-gray-300 bg-white px-3 py-1 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1" />
+            </div>
+            <div class="space-y-2">
+              <label for="startDate" class="block text-sm font-medium text-gray-700">Start Date</label>
+              <input id="startDate" type="date" required class="flex h-9 w-full rounded-md border border-gray-300 bg-white px-3 py-1 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1" />
+            </div>
+            <div class="space-y-2">
+              <label for="hours" class="block text-sm font-medium text-gray-700">Hours Spent</label>
+              <input id="hours" type="number" inputmode="numeric" required class="flex h-9 w-full rounded-md border border-gray-300 bg-white px-3 py-1 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1" />
+            </div>
+            <button type="submit" class="inline-flex items-center justify-center rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-gray-50 hover:bg-gray-900/90">Save</button>
+          </form>
+          <p><a href="./" class="text-blue-600 underline">Back to Projects</a></p>
+        </main>
+      </div>
+    </div>
+    <script>
+      lucide.createIcons();
+      const menuBtn = document.getElementById('menuButton');
+      const sidebar = document.getElementById('sidebar');
+      menuBtn.addEventListener('click', () => {
+        sidebar.classList.toggle('hidden');
+      });
+
+      const projects = [
+        {
+          id: '1',
+          name: 'Project Alpha',
+          client: 'Acme Corp',
+          startDate: '2023-01-01',
+          hours: '120'
+        },
+        {
+          id: '2',
+          name: 'Project Beta',
+          client: 'Globex Inc',
+          startDate: '2023-02-15',
+          hours: '80'
+        }
+      ];
+
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get('id') || '1';
+      const project = projects.find((p) => p.id === id);
+
+      if (project) {
+        document.getElementById('name').value = project.name;
+        document.getElementById('client').value = project.client;
+        document.getElementById('startDate').value = project.startDate;
+        document.getElementById('hours').value = project.hours;
+      }
+    </script>
+  </body>
+</html>
