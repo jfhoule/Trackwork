@@ -4,10 +4,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Edit Client</title>
+    <link rel="stylesheet" href="../nav.css" />
   </head>
   <body>
+    <nav class="navbar">
+      <span class="nav-logo">Trackwork</span>
+      <button id="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+      <ul id="nav-menu" class="nav-menu">
+        <li><a href="/">Home</a></li>
+        <li><a href="/dashboard">Dashboard</a></li>
+        <li><a href="/clients/edit.html">Clients</a></li>
+        <li><a href="/projects">Projects</a></li>
+        <li><a href="/time">Time</a></li>
+        <li><a href="/invoices">Invoices</a></li>
+        <li><a href="/reports">Reports</a></li>
+        <li><a href="/settings">Settings</a></li>
+      </ul>
+    </nav>
     <h1>Edit Client</h1>
     <p id="message">Loading...</p>
+    <script src="../nav.js" defer></script>
     <script>
       const params = new URLSearchParams(window.location.search);
       const id = params.get('id');
