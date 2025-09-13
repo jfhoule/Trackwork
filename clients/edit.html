@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Client</title>
+  </head>
+  <body>
+    <h1>Edit Client</h1>
+    <p id="message">Loading...</p>
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get('id');
+      const message = id
+        ? `Editing client ${id} is not yet implemented. Please check back later.`
+        : 'No client specified.';
+      document.getElementById('message').textContent = message;
+    </script>
+  </body>
+</html>
