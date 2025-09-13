@@ -27,12 +27,12 @@ export default function EditForm({ client }: { client: Client }) {
   const form = useForm<FormValues>({
     resolver: zodResolver(schema),
     defaultValues: {
-      name: client.name,
-      contact_person: client.contact_person,
-      email: client.email,
-      phone: client.phone,
-      company_name: client.company_name,
-      client_number: client.client_number,
+      name: client.name ?? '',
+      contact_person: client.contact_person ?? '',
+      email: client.email ?? '',
+      phone: client.phone ?? '',
+      company_name: client.company_name ?? '',
+      client_number: client.client_number ?? '',
     },
   });
 

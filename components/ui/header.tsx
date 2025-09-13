@@ -17,7 +17,7 @@ export function Header() {
   const [open, setOpen] = React.useState(false);
   return (
     <header className="flex h-14 items-center border-b bg-white px-4 dark:border-gray-800 dark:bg-gray-950">
-      <Button variant="ghost" className="mr-2 md:hidden" onClick={() => setOpen(true)}>
+      <Button variant="ghost" className="mr-2" onClick={() => setOpen(true)}>
         <Menu className="h-5 w-5" />
         <span className="sr-only">Toggle menu</span>
       </Button>
